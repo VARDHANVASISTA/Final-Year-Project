@@ -1,0 +1,1 @@
+For Tkinter UI version, make sure all the UI.py, Quick_Check.py, Candidate_Mode.py, Recruiter_Mode.py are in same folder. Also please change the paths to all the three files in UI.py to path in your system.
