@@ -1,15 +1,23 @@
 import tkinter as tk
+from tkinter import messagebox
 import subprocess
-import sys
+import os
 
 def run_script(script_key):
     script_paths = {
-        "quick_check": r"Path_To_Quick_Check.py",
-        "candidate_mode": r"Path_To_Candidate_Mode.py",
-        "recruiter_mode": r"Path_To_Recruiter_Mode.py",
+        "quick_check": r"Path to Quick_Check.exe",
+        "candidate_mode": r"Path to Candidate_Mode.exe",
+        "recruiter_mode": r"Path to Recruiter_Mode.exe",
     }
-    python_exec = sys.executable
-    subprocess.Popen([python_exec, script_paths[script_key]])
+
+    exe_file = script_paths.get(script_key)
+    if exe_file and os.path.exists(exe_file):
+        try:
+            subprocess.Popen(exe_file, shell=True)
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to launch {exe_file}:\n{str(e)}")
+    else:
+        messagebox.showerror("File Not Found", f"Executable not found:\n{exe_file}")
 
 def main_ui():
     root = tk.Tk()
