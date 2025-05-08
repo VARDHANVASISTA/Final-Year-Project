@@ -152,7 +152,7 @@ def main():
             messagebox.showerror("Error", str(e))
 
     root = tk.Tk()
-    root.title("FrResAlyzer - Resume Analyzer")
+    root.title("FrResAlyzer - Quick Check")
     root.geometry("600x400")
 
     tk.Label(root, text="Google API Key:").pack()
