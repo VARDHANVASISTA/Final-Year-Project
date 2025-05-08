@@ -5,9 +5,9 @@ import os
 
 def run_script(script_key):
     script_paths = {
-        "quick_check": r"Path to Quick_Check.exe",
-        "candidate_mode": r"Path to Candidate_Mode.exe",
-        "recruiter_mode": r"Path to Recruiter_Mode.exe",
+        "quick_check": r"Path to Quick_Check.py",
+        "candidate_mode": r"Path to Candidate_Mode.py",
+        "recruiter_mode": r"Path to Recruiter_Mode.py",
     }
 
     exe_file = script_paths.get(script_key)
