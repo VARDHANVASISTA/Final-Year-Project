@@ -8,6 +8,7 @@ import re
 import time
 from google.api_core.exceptions import ResourceExhausted
 
+# ---------- Utility Functions ----------
 def extract_text_from_pdf(pdf_path):
     doc = fitz.open(pdf_path)
     text = "\n".join([page.get_text() for page in doc])
@@ -150,7 +151,7 @@ def main():
         display_shortlisted_only(match_results, top_n)
 
     root = tk.Tk()
-    root.title("FrResAlyzer - Batch Resume Matcher")
+    root.title("FrResAlyzer - Recruiter Mode")
     root.geometry("700x500")
 
     tk.Label(root, text="Google API Key:").pack()
