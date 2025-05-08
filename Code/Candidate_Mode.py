@@ -50,7 +50,8 @@ def analyze_resume_with_google_ai(resume_text, job_desc_text, api_key, code_type
     Analyze the provided resume and job description thoroughly. Perform the following tasks:  
 
     **Match Analysis:**  
-    - Calculate the **match percentage** between the resume and job description.  
+    - Calculate the **match percentage** between the resume and job description.
+    - If the match percentage is uncertain or obtained as a range (e.g., Match Percentage: 10 - 15%), then do not give output range. Instead give an average number of the range (e.g., Match percentage(obtained): 10 - 15%, then Match Percentage(output): 12.5%).
     - List the **missing skills**, technologies, and experience that are relevant but not present in the resume in detail.
     - If the Job description states that the job requires an experience > 0 years, then give an output similar to "This (Job Title) Job from (Company Name) is not suitable for you as it requires an experience of (years of experience as mentioned in Job description) years" and terminate don't give any other output.  
 
@@ -189,7 +190,7 @@ def main():
     job_desc_paths = []
 
     root = tk.Tk()
-    root.title("FrResAlyzer - Resume Analyzer")
+    root.title("FrResAlyzer - Candidate Mode")
     root.geometry("600x450")
 
     tk.Label(root, text="Google API Key:").pack()
