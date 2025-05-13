@@ -9,8 +9,18 @@ def run_script(script_key):
         "recruiter_mode": r"Path to Recruiter_Mode.py",
         "model_performance": r"Path to Model_Analyzer.py"
     }
-    python_exec = sys.executable
-    subprocess.Popen([python_exec, script_paths[script_key]])
+
+    exe_file = script_paths.get(script_key)
+    if exe_file and os.path.exists(exe_file):
+        try:
+            subprocess.Popen(exe_file, shell=True)
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to launch {exe_file}:\n{str(e)}")
+    else:
+        messagebox.showerror("File Not Found", f"Executable not found:\n{exe_file}")
+    
+    # python_exec = sys.executable
+    # subprocess.Popen([python_exec, script_paths[script_key]])
 
 def main_ui():
     root = tk.Tk()
