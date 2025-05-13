@@ -162,7 +162,7 @@ def main():
             img_win = tk.Toplevel()
             img_win.title("Model Efficiency Graph")
             img = Image.open(img_path)
-            img = img.resize((800, 500), Image.LANCZOS)
+            img = img.resize((800, 500), Image.Resampling.LANCZOS)
             photo = ImageTk.PhotoImage(img)
             label = tk.Label(img_win, image=photo)
             label.image = photo
