@@ -1,0 +1,21 @@
+## THIS IS FOR AUTHENTICATION FOR NGROK APP
+## STEP 3
+
+import os
+os.environ["NGROK_AUTH_TOKEN"] = "2x30zvTnGJ8Uzo0yKyEH8niy71W_4ZTWtCNCVVhfKAczFTr5P"
+!ngrok config add-authtoken $NGROK_AUTH_TOKEN
+
+## This is to keep logs.
+!streamlit run app.py &> /content/logs.txt &
+
+# 4. Connect with ngrok
+from pyngrok import ngrok
+public_url = ngrok.connect(8501)
+print(public_url)
+
+
+### remember this is only when the tunnel limit is exceeded.
+## TO CLEAN UP NGROK PROCESSES, SINCE IT ONLY GIVES YOU 3 TUNNELS PER SESSION
+# Kill streamlit & ngrok processes
+!pkill streamlit
+!pkill ngrok
