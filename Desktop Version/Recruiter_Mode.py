@@ -49,7 +49,6 @@ def analyze_with_google_ai(resume_text, job_desc_text, api_key, model_name, max_
     prompt = f"""
     Compare the following resume with the given job description and perform:
     - Calculate **Match Percentage** between resume and job description.
-    - If the job description mentions that the job requires work experience i.e, required work experience > 0 years or > 0 months, then return the Match percentage as 0%
     - Extract **Candidate Name**.
 
     Provide response in this format:
@@ -63,6 +62,8 @@ def analyze_with_google_ai(resume_text, job_desc_text, api_key, model_name, max_
     {job_desc_text}
     """
 
+    # - If the job description mentions that the job requires work experience i.e, required work experience > 0 years or > 0 months, then return the Match percentage as 0%
+    
     model = genai.GenerativeModel(f"models/{model_name}")
 
     for attempt in range(1, max_retries + 1):
